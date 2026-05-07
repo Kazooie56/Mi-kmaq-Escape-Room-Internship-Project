@@ -25,7 +25,7 @@ public class PlayerInputHandler : MonoBehaviour, PlayerInput.IPlayerActions
     }
     public void OnCrouch(InputAction.CallbackContext context)
     {
-        throw new System.NotImplementedException();
+        Debug.Log("Crouch");
     }
 
     public void OnInspect(InputAction.CallbackContext context)
@@ -40,7 +40,7 @@ public class PlayerInputHandler : MonoBehaviour, PlayerInput.IPlayerActions
 
     public void OnJump(InputAction.CallbackContext context)
     {
-        throw new System.NotImplementedException();
+        Debug.Log("Jump");
     }
 
     public void OnLook(InputAction.CallbackContext context)
@@ -55,21 +55,23 @@ public class PlayerInputHandler : MonoBehaviour, PlayerInput.IPlayerActions
 
     public void OnNext(InputAction.CallbackContext context)
     {
-        throw new System.NotImplementedException();
+        // I don't know if we need this but ill keep it just in case
+        Debug.Log("Next");
     }
 
     public void OnPickUp(InputAction.CallbackContext context)
     {
-        throw new System.NotImplementedException();
+        Debug.Log("PickUp");
     }
 
     public void OnPrevious(InputAction.CallbackContext context)
     {
-        throw new System.NotImplementedException();
+        // I don't know if we need this but ill keep it just in case
+        Debug.Log("Previous");
     }
 
     public void OnSprint(InputAction.CallbackContext context)
     {
-        throw new System.NotImplementedException();
+        Debug.Log("Sprint");
     }
 }
