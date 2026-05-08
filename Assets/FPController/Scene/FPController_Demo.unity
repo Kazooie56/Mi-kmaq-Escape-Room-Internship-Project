@@ -299,9 +299,10 @@ MonoBehaviour:
   movementSpeed: 10
   rotationSpeed: 10
   gravity: 9.81
-  gravityMultiplier: 0
-  upLookLimit: 80
-  downLookLimit: -80
+  gravityMultiplier: 1
+  groundForce: -2
+  upLookLimit: 60
+  downLookLimit: -60
   cameraTarget: {fileID: 557353796}
 --- !u!4 &1052912126
 Transform:

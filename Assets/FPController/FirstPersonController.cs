@@ -1,4 +1,3 @@
-using Unity.Cinemachine;
 using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
@@ -11,7 +10,8 @@ public class FirstPersonController : MonoBehaviour
 
     [SerializeField] private float gravity = 9.81f;
     [SerializeField] private float gravityMultiplier = 3f;
-    private Vector3 velocity;
+    [SerializeField] private float groundForce;
+    
 
     [SerializeField] private float upLookLimit;
     [SerializeField] private float downLookLimit;
@@ -20,6 +20,7 @@ public class FirstPersonController : MonoBehaviour
 
     private Vector2 movementInput;
     private Vector2 lookInput;
+    private Vector3 velocity;
 
     // Used to rotate the camera up and down
     [SerializeField] private Transform cameraTarget;
@@ -41,7 +42,7 @@ public class FirstPersonController : MonoBehaviour
     {
         ApplyLook();
         ApplyMovement();
-        //ApplyGravity();
+        ApplyGravity();
     }
 
     private void ApplyMovement()
@@ -53,7 +54,7 @@ public class FirstPersonController : MonoBehaviour
         // Converts local direction to world position
         direction = transform.TransformDirection(direction);
 
-        characterController.Move(direction * movementSpeed * Time.deltaTime);
+        characterController.Move((direction + velocity) * movementSpeed * Time.deltaTime);
     }
     private void ApplyLook()
     {
@@ -78,14 +79,13 @@ public class FirstPersonController : MonoBehaviour
 
     private void ApplyGravity()
     {
+        // Check if player is grounded and falling 
         if (characterController.isGrounded && velocity.y < 0)
         {
-            //velocity.y = -2f;
+            velocity.y = groundForce;
+            
         }
-
-        //velocity.y -= gravity * gravityMultiplier * Time.deltaTime;
-        //Debug.Log(characterController.isGrounded);
-        //characterController.Move(velocity * Time.deltaTime);
+        velocity.y -= gravity * gravityMultiplier * Time.deltaTime;
     }
 
     public void SetMovement(Vector2 moveValue)
@@ -105,5 +105,11 @@ public class FirstPersonController : MonoBehaviour
     public void SetMoveBool(bool canMoveValue)
     {
         canMove = canMoveValue;
+    }
+
+    public bool IsGrounded()
+    {
+        if (characterController == null) return false;
+        return characterController.isGrounded;
     }
 }

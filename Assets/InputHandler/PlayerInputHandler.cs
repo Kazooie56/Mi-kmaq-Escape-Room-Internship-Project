@@ -40,7 +40,17 @@ public class PlayerInputHandler : MonoBehaviour, PlayerInput.IPlayerActions
 
     public void OnJump(InputAction.CallbackContext context)
     {
-        Debug.Log("Jump");
+        if (context.started)
+        {
+            if (fpController.IsGrounded())
+            {
+                Debug.Log("I can Jump");
+            }
+            else
+            {
+                Debug.Log("I can't Jump");
+            }
+        }
     }
 
     public void OnLook(InputAction.CallbackContext context)
