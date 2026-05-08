@@ -14,7 +14,8 @@ public class InspectObject : MonoBehaviour,IInspectable
     private Rigidbody rb;
     private Transform playerCameraTransform;
     private Vector3 heldOffsetPosition;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -69,5 +70,4 @@ public class InspectObject : MonoBehaviour,IInspectable
         transform.position = targetPosition;
         transform.rotation = targetRotation;
     }
-
 }

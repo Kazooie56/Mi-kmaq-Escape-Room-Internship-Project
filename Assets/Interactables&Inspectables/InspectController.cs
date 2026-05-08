@@ -7,6 +7,7 @@ public class InspectController : MonoBehaviour
     [SerializeField] private LayerMask inspectMask;
     [SerializeField] private float inspectRotationSpeed;
     [SerializeField] private float raycastDistance;
+    [SerializeField] private InputSettings sensitivity;
 
     private IInspectable inspectable;
 
@@ -58,7 +59,6 @@ public class InspectController : MonoBehaviour
                 isInspecting = true;
 
                 //if (inputs != null) inputs.enabled = false;
-
                 
                 if (inspectable != null)
                 {
@@ -74,8 +74,8 @@ public class InspectController : MonoBehaviour
         float mouseX = Input.GetAxis("Mouse X");
         float mouseY = Input.GetAxis("Mouse Y");
 
-        inspectTransform.Rotate(playerCameraTransform.up, -mouseX * inspectRotationSpeed * Time.deltaTime, Space.World);
-        inspectTransform.Rotate(playerCameraTransform.right, mouseY * inspectRotationSpeed * Time.deltaTime, Space.World);
+        inspectTransform.Rotate(playerCameraTransform.up, -mouseX * sensitivity.lookSensitivity * inspectRotationSpeed * Time.deltaTime, Space.World);
+        inspectTransform.Rotate(playerCameraTransform.right, mouseY * sensitivity.lookSensitivity * inspectRotationSpeed * Time.deltaTime, Space.World);
     }
 
     void StopInspect()

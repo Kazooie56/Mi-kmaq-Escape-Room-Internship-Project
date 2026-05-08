@@ -7,13 +7,11 @@ public class InteractionController : MonoBehaviour
     [SerializeField] private LayerMask interactMask;
 
     private IInteractable interactable;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         playerCameraTransform = Camera.main.transform;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))

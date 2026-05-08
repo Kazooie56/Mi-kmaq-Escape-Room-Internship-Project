@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Door : MonoBehaviour,IInteractable
+public class Door : MonoBehaviour, IInteractable
 {
     [SerializeField] private KeyData requiredKey;
 
@@ -18,7 +18,12 @@ public class Door : MonoBehaviour,IInteractable
 
         if (inventory.HasKey(requiredKey))
         {
+            inventory.RemoveKey(requiredKey);
+
+            InventoryUI.Instance.RemoveItem(requiredKey);
+
             gameObject.SetActive(false);
+
             Debug.Log("Open door");
         }
         else

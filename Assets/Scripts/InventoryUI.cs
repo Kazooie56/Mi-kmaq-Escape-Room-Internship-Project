@@ -7,7 +7,7 @@ public class InventoryUI : MonoBehaviour
 
     public InventorySlotUI[] slots = new InventorySlotUI[8];
 
-    private int nextSlot = 0;
+    private List<ItemData> items = new List<ItemData>();
 
     void Awake()
     {
@@ -18,10 +18,34 @@ public class InventoryUI : MonoBehaviour
     {
         if (item == null) return;
 
-        if (nextSlot >= slots.Length)
-            return; // full inventory (or handle overflow)
+        if (items.Count >= slots.Length)
+            return;
 
-        slots[nextSlot].SetItem(item);
-        nextSlot++;
+        items.Add(item);
+        RefreshUI();
+    }
+
+    public void RemoveItem(ItemData item)
+    {
+        if (item == null) return;
+
+        items.Remove(item);
+
+        RefreshUI();
+    }
+
+    private void RefreshUI()
+    {
+        for (int i = 0; i < slots.Length; i++)
+        {
+            if (i < items.Count)
+            {
+                slots[i].SetItem(items[i]);
+            }
+            else
+            {
+                slots[i].SetItem(null);
+            }
+        }
     }
 }

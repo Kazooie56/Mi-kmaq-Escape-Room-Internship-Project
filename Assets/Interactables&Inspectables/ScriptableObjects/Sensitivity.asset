@@ -9,10 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6290efec4c1eeaf4db891524013e264a, type: 3}
-  m_Name: KeyData
+  m_Script: {fileID: 11500000, guid: ff004135c752aa244ad14b83544c254e, type: 3}
+  m_Name: Sensitivity
   m_EditorClassIdentifier: 
-  displayName: Key
-  icon: {fileID: 21300000, guid: 0a365ba9dc353a74499017fdb6ccd810, type: 3}
-  description: This should help open a door.
-  keyID: 123
+  lookSensitivity: 400

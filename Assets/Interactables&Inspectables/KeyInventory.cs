@@ -19,4 +19,9 @@ public class KeyInventory : MonoBehaviour
         // Checks any key for the Keyid, will reutrn true if found or false if not
         return keys.Any(key => key.keyID == requiredKey.keyID);
     }
+
+    public void RemoveKey(KeyData keyToRemove)
+    {
+        keys.Remove(keyToRemove);
+    }
 }

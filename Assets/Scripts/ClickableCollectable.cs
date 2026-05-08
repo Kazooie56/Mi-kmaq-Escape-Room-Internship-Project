@@ -1,15 +1,15 @@
 using UnityEngine;
 
-public class ClickableCollectable : MonoBehaviour
+public class ClickableCollectable : MonoBehaviour, IInteractable
 {
     public ItemData item;
 
-    private void OnMouseDown()
+    public void OnInteract(GameObject interactor)
     {
         if (item == null) return;
 
         InventoryUI.Instance.AddItem(item);
-        CollectableUI.Instance.ShowItem(item);
+        CollectableUI.Instance.ShowCollectable(item);
 
         Destroy(gameObject);
     }

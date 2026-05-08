@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b47167e8bc35b3d4bb4b0ffb652a2ade, type: 3}
-  m_Name: Apple Item Data
+  m_Name: Stick Data
   m_EditorClassIdentifier: 
-  itemName: Apple
-  icon: {fileID: 21300000, guid: fd9726d9df0342646b0600465a885507, type: 3}
-  collectDescription: A tasty apple.
+  displayName: Stick
+  icon: {fileID: 21300000, guid: 8bb1e8bb3c499dc47b6b072198c59e39, type: 3}
+  description: a versatile tool.

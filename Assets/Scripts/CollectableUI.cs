@@ -39,11 +39,11 @@ public class CollectableUI : MonoBehaviour
     //    fadeRoutine = StartCoroutine(UIPopup());
     //}
 
-    public void ShowItem(ItemData item)
+    public void ShowCollectable(ItemData data)
     {
-        nameText.text = "Object found: " + item.itemName;
-        iconImage.sprite = item.icon;
-        descriptionText.text = item.collectDescription;
+        nameText.text = "Object found: " + data.displayName;
+        iconImage.sprite = data.icon;
+        descriptionText.text = data.description;
 
         if (fadeRoutine != null)
             StopCoroutine(fadeRoutine);

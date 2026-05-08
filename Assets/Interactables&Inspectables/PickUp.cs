@@ -10,7 +10,6 @@ public class PickUp : MonoBehaviour, IInteractable, ICancel
     private float lerpMoveSpeed;
     private bool isHeld = false;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -20,12 +19,6 @@ public class PickUp : MonoBehaviour, IInteractable, ICancel
             heldOffsetPosition = pickUpData.holdPointOffset;
             lerpMoveSpeed = pickUpData.lerpMoveSpeed;
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     private void FixedUpdate()
